@@ -6,8 +6,6 @@
 /* Styling the container */
 
 body {
-    background-color: #0F0F0F;
-    color: white;
     height: auto;
     overflow-x: hidden;
 }
@@ -39,7 +37,6 @@ body {
     height: auto;
     flex-direction: column;
     flex-wrap: nowrap;
-    background-color: #272733;
     padding: 1rem;
 }
 

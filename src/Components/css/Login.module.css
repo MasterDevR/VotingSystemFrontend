@@ -1,0 +1,85 @@
+.Wrapper {
+    height: 100vh;
+}
+
+.Container{
+    height: 100%;
+        width: 100%;
+        display: flex;
+        flex-direction: row;
+        flex-wrap: wrap;
+        align-items: center;
+        justify-content: space-evenly;
+}
+#heading{
+    color: #0E6B25;
+    font-size: 3rem;
+    font-weight: bold;
+}
+.Container form{
+    height: 60%;
+    width: 28%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 2rem;
+} 
+.Container form > div{
+    display: inline-flex;
+    width: 100%;
+    align-items: center;
+    justify-content: center;
+} 
+.Container form > div > input[type='text'],
+.Container form> div >input[type='password']{
+    height: 3rem;
+    width: 68%;
+    font-size: 1.3rem;
+    border: none;
+    border-bottom: solid black 1px;
+    letter-spacing: .2rem;
+    padding-left: 3rem;
+    outline: none;
+} 
+#LoginIcon {
+    position: relative;
+    left: 2rem;
+    color: green;
+    cursor: pointer;
+}
+
+#btn {
+    position: relative;
+    left: 5%;
+    width: 63%;
+    height: 50px;
+    border-radius: 25px;
+    border: none;
+    background-image: linear-gradient(to right, #32be8f, #38d39f, #32be8f);
+    background-size: 200%;
+    font-size: 1.2rem;
+    color: #fff;
+    font-family: 'Poppins', sans-serif;
+    cursor: pointer;
+    padding: .8rem;
+    transition: .5s;;
+}
+
+#btn:hover {
+    background-position: right;
+}
+
+#lion_Logo{
+    height: 20%;
+}
+#forgot_Password{
+    position: relative;
+    left: 22%;
+    text-decoration: underline;
+    font-size: 1.2rem;
+    color: grey;
+    cursor: pointer;
+}
+#forgot_Password:hover {
+  color: black;
+}
