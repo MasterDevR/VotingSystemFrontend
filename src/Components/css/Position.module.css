@@ -1,0 +1,31 @@
+.Form_Wrapper{
+    display: flex;
+    flex-direction: column;
+    row-gap: 2rem;
+}
+.Position_Wrapper h1{
+    text-align: center;
+    color: white;
+}
+.Form_Heading{
+    background-color: aliceblue;
+    width: 70%;
+    height: 3rem;
+    display: flex;
+    align-items: center;
+    padding: 1rem;
+    background-color: #ffffff;
+    box-shadow: inset 0 0 8px rgb(142 143 137);
+}
+.Form_Heading > h2{
+    width: 100%;
+    text-align: center;
+}
+
+.btn_Wrapper{
+    position: relative;
+    display: flex;
+    width: 100%;
+    justify-content: flex-start;
+    padding-right: 2rem;
+}
