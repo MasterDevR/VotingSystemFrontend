@@ -16,12 +16,12 @@ const Navlink = ({ isNav }) => {
   return (
     <div className={classes.container}>
       <span>{isNav && "REPORT"}</span>
-      <NavLink to="/Dashboard">
+      <NavLink to="/Dashboard" title="Dashboard">
         <MdDashboardCustomize className={isNav ? "" : classes.centerIcon} />
         {isNav && <span>Dashboard</span>}
       </NavLink>
 
-      <NavLink to="">
+      <NavLink to="" title="Votes">
         {" "}
         <MdHowToVote className={isNav ? "" : classes.centerIcon} />
         {isNav && <span>Votes</span>}
@@ -29,7 +29,7 @@ const Navlink = ({ isNav }) => {
 
       <span>{isNav && "MANAGE"}</span>
 
-      <NavLink to="/Postion">
+      <NavLink to="/Postion" title="Position">
         {" "}
         <GiPositionMarker className={isNav ? "" : classes.centerIcon} />
         {isNav && <span>Position</span>}
@@ -37,19 +37,29 @@ const Navlink = ({ isNav }) => {
 
       <NavLink to="">
         {" "}
-        <MdPersonPinCircle className={isNav ? "" : classes.centerIcon} />
+        <MdPersonPinCircle
+          className={isNav ? "" : classes.centerIcon}
+          title="Candidate"
+        />
         {isNav && <span>Candidate</span>}
       </NavLink>
       <span>{isNav && "SETTING"}</span>
       <NavLink to="">
         {" "}
-        <MdOutlineBallot className={isNav ? "" : classes.centerIcon} />{" "}
+        <MdOutlineBallot
+          className={isNav ? "" : classes.centerIcon}
+          title="Ballot"
+        />{" "}
         {isNav && <span>Ballot</span>}
       </NavLink>
 
       <span></span>
 
-      <NavLink to="" style={{ justifyContent: "center", color: "white" }}>
+      <NavLink
+        to=""
+        style={{ justifyContent: "center", color: "white" }}
+        title="Logout"
+      >
         <MdLogout className={isNav ? "" : classes.centerIcon} />{" "}
         {isNav && <span>LOGOUT</span>}
       </NavLink>

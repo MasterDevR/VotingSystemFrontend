@@ -9,14 +9,15 @@
     color: white;
 }
 #iconHidden{
-display: flex;
+    display: flex;
     height: 5rem;
     margin: auto;
     color: white;
 }
 
 .navigation {
-    position: relative;
+    position: sticky;
+    top: 0;
     height: 100vh;
     background-color: #233044;
     width: 6%;
@@ -71,8 +72,6 @@ display: flex;
       width: 2rem;
   }
 
-
-  
 @media only screen and (max-width: 1250px) {
 .container { 
         font-size: 1.1rem;
