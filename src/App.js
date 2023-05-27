@@ -9,11 +9,12 @@ import Dashboard from "./Components/pages/Dashboard";
 import Position from "./Components/pages/Position";
 
 // login page
-import Login from "./Components/pages/Login";
+import Login, { LoginAction } from "./Components/pages/Login";
 const Router = createBrowserRouter([
   {
     // login
     path: "Login",
+    action: LoginAction,
     element: <Login />,
   },
   {

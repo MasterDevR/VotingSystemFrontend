@@ -15,7 +15,7 @@ const Login = () => {
     <div className={classes.Wrapper}>
       <div className={classes.Container}>
         <img src={icon} alt="icon" />
-        <Form>
+        <Form method="post" action="/Login">
           <img src={logo} alt="icon" id={classes.lion_Logo} />
           <span id={classes.heading}>LOGIN</span>
           <div>
@@ -52,3 +52,13 @@ const Login = () => {
 };
 
 export default Login;
+
+export const LoginAction = async ({ request }) => {
+  let formData = await request.formData();
+  const email = formData.get("username");
+  const password = formData.get("password");
+  console.log(email);
+  console.log(password);
+  console.log(formData);
+  return formData;
+};
