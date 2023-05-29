@@ -1,6 +1,6 @@
 import classes from "../css/nav.module.css";
 import { GiHamburgerMenu } from "react-icons/gi";
-import { useState, useEffect } from "react";
+import { useState } from "react";
 import { AiOutlineArrowLeft } from "react-icons/ai";
 
 import NavLink from "./NavLink";

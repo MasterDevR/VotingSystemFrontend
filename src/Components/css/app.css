@@ -41,6 +41,7 @@ body {
 }
 
 #button{
+    margin-top: 2rem;
     display: flex;
     align-items: center;
     justify-content: center;
@@ -49,12 +50,12 @@ body {
     column-gap: 0.2rem;
     font-size: 1.2rem;
     border: none;
-    background-color: #048904;
+    background-color: #04AA6D;
     color: white;
     cursor: pointer;
 }
 #button:hover {
-    background-color: #a3a5a3;
+    background-color: #999999a8;
     color: black;
 }
     

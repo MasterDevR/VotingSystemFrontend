@@ -1,6 +1,7 @@
+import axios from "axios";
 import classes from "../css/Login.module.css";
 import { useState } from "react";
-import { Form } from "react-router-dom";
+import { Form, redirect } from "react-router-dom";
 import { AiOutlineUser, AiOutlineLock, AiOutlineUnlock } from "react-icons/ai";
 // image
 import icon from "../image/UDMZ.png";
@@ -55,10 +56,21 @@ export default Login;
 
 export const LoginAction = async ({ request }) => {
   let formData = await request.formData();
-  const email = formData.get("username");
+  const username = formData.get("username");
   const password = formData.get("password");
-  console.log(email);
-  console.log(password);
-  console.log(formData);
-  return formData;
+
+  const response = await axios.post("http://localhost:3001/Login", {
+    username,
+    password,
+  });
+
+  const userType = response.data.userType;
+
+  if (userType !== "Not Found") {
+    console.log(userType);
+    localStorage.setItem("userType", userType);
+    return redirect("/");
+  }
+  console.log(userType);
+  return redirect("/login");
 };
