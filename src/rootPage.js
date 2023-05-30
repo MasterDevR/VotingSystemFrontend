@@ -1,8 +1,9 @@
-import { Outlet } from "react-router-dom";
+import { Outlet, redirect, useLoaderData } from "react-router-dom";
 import AdminNav from "./Components/Navbar/AdminNav";
 import Student from "./Components/pages/student";
 const RootPage = () => {
-  const userType = localStorage.getItem("userType");
+  const loader = useLoaderData();
+  const userType = loader;
   const isAdmin = userType === "admin";
 
   return (
@@ -22,3 +23,12 @@ const RootPage = () => {
 };
 
 export default RootPage;
+
+export const rootPageLoader = async () => {
+  const userType = localStorage.getItem("userType");
+
+  if (userType === null) {
+    return redirect("/login");
+  }
+  return userType;
+};

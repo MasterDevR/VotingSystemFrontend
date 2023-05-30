@@ -1,6 +1,6 @@
 import { createBrowserRouter, RouterProvider } from "react-router-dom";
 
-import RootPage from "./rootPage";
+import RootPage, { rootPageLoader } from "./rootPage";
 
 // style
 import "./Components/css/app.css";
@@ -20,6 +20,7 @@ const Router = createBrowserRouter([
   {
     path: "/",
     element: <RootPage />,
+    loader: rootPageLoader,
     children: [
       {
         path: "Dashboard",
@@ -38,6 +39,3 @@ const App = () => {
 };
 
 export default App;
-
-// functionality
-//

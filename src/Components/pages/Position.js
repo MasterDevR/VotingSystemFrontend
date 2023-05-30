@@ -1,24 +1,54 @@
-import { useState, useRef } from "react";
+import { useEffect, useState } from "react";
 import classes from "../css/Position.module.css";
 import { GoDiffAdded } from "react-icons/go";
+import { HiOutlineXMark } from "react-icons/hi2";
+import axios from "axios";
 
 const Position = () => {
   const [rowCount, setRowCount] = useState(1);
+  const [Data, setData] = useState([]);
 
-  const handleAddRow = () => {
+  const handleAddRow = async (e) => {
     setRowCount(rowCount + 1);
-  };
-
-  const handleSubmit = (e) => {
-    e.preventDefault();
-    const formData = new FormData(e.target);
-    const data = [];
+    const form = e.target.closest("form");
+    const formData = new FormData(form);
+    const newData = [];
     for (let i = 0; i < rowCount; i++) {
       const position = formData.get(`position_${i}`);
       const numOfVote = formData.get(`numOfvote_${i}`);
-      data.push({ position, numOfVote });
+
+      newData.push({ position, numOfVote });
     }
-    console.log(data);
+    setData(newData);
+    console.log(Data);
+  };
+  const handleDeleteRow = async (e, delIndex) => {
+    console.log("remove " + delIndex);
+    if (rowCount === 1) {
+      return;
+    }
+    setRowCount((prevData) => prevData - 1);
+    setData((prevData) =>
+      prevData.filter((filterIndex) => {
+        return filterIndex !== delIndex;
+      })
+    );
+
+    console.log(Data);
+  };
+
+  const handleSubmit = async (e) => {
+    e.preventDefault();
+    axios
+      .post("http://localhost:3001/position", {
+        Data,
+      })
+      .then((response) => {
+        alert(response.data.message);
+      })
+      .catch((err) => {
+        console.log("position:", err);
+      });
   };
 
   return (
@@ -30,6 +60,7 @@ const Position = () => {
               <th></th>
               <th>Description</th>
               <th>Maximum Vote</th>
+              <th></th>
             </tr>
           </thead>
           <tbody>
@@ -40,7 +71,7 @@ const Position = () => {
                     <GoDiffAdded
                       size={"1.5rem"}
                       id={classes.AddPositionBtn}
-                      onClick={handleAddRow}
+                      onClick={(e) => handleAddRow(e)}
                     />
                   )}
                 </td>
@@ -56,6 +87,13 @@ const Position = () => {
                     type="number"
                     id={classes.inputForm}
                     name={`numOfvote_${index}`}
+                  />
+                </td>
+                <td id={classes.btnTr}>
+                  <HiOutlineXMark
+                    size={"1.5rem"}
+                    id={classes.AddPositionBtn}
+                    onClick={(e) => handleDeleteRow(e, index)}
                   />
                 </td>
               </tr>
